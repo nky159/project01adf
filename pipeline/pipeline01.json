@@ -55,7 +55,10 @@
 				"outputs": [
 					{
 						"referenceName": "Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": "accounts.csv"
+						}
 					}
 				]
 			},
@@ -119,7 +122,10 @@
 				"outputs": [
 					{
 						"referenceName": "Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": "product.csv"
+						}
 					}
 				]
 			},
@@ -183,7 +189,10 @@
 				"outputs": [
 					{
 						"referenceName": "Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": "data_dictionary.csv"
+						}
 					}
 				]
 			},
@@ -247,7 +256,10 @@
 				"outputs": [
 					{
 						"referenceName": "Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": "sales_pipeline.csv"
+						}
 					}
 				]
 			},
@@ -311,7 +323,10 @@
 				"outputs": [
 					{
 						"referenceName": "Sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": "sales_teams.csv"
+						}
 					}
 				]
 			},
