@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "nky159/project01adf/refs/heads/main/product.csv"
+				"relativeUrl": "nky159/project01adf/refs/heads/main/sales_teams.csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
