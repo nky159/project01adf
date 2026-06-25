@@ -17,6 +17,8 @@
 						{
 							"name": "Azuretosql",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "last_cdc",
@@ -135,6 +137,8 @@
 						{
 							"name": "current",
 							"type": "SetVariable",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"secureOutput": false,
@@ -152,6 +156,8 @@
 						{
 							"name": "IfIncrementalData",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Azuretosql",
