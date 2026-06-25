@@ -9,9 +9,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "[\n  {\n    \"schema\" : \"dbo\",\n    \"table\" : \"DimUser\",\n    \"cdc_col\" : \"updated_at\",\n    \"from_date\" : \"\"\n  },\n  {\n    \"schema\" : \"dbo\",\n    \"table\" : \"DimTrack\",\n    \"cdc_col\" : \"updated_at\",\n    \"from_date\" : \"\"\n  },\n  {\n    \"schema\" : \"dbo\",\n    \"table\" : \"DimDate\",\n    \"cdc_col\" : \"date\",\n    \"from_date\" : \"\"\n  },\n  {\n    \"schema\" : \"dbo\",\n    \"table\" : \"DimArtist\",\n    \"cdc_col\" : \"updated_at\",\n    \"from_date\" : \"\"\n  },\n  {\n    \"schema\" : \"dbo\",\n    \"table\" : \"FactStream\",\n    \"cdc_col\" : \"stream_timestamp\",\n    \"from_date\" : \"\"\n  }\n]",
+						"value": "@pipeline().parameters.loop_input",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Azuretosql",
@@ -42,7 +43,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "SELECT *\nFROM @{item().schema}.@{item().table}\nWHERE @{item().cdc_col} >\n'@{if(\n    empty(item().from_date),\n    activity('last_cdc').output.value[0].cdc,\n    item().from_date\n)}'",
+										"value": "SELECT *\nFROM @{item().schema}.@{item().table}\nWHERE @{item().cdc_col} >\n'@{if(\n    empty(item().from_date),\n    activity('last_cdc').output.firstRow.cdc,\n    item().from_date\n)}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
