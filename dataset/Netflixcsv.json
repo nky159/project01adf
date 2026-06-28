@@ -1,0 +1,30 @@
+{
+	"name": "Netflixcsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Netflixgitls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "nky159/Netflix_Dataset/refs/heads/main/@{dataset().file_name}\n",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
